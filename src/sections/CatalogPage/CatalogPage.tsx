@@ -36,6 +36,8 @@ const categoryAliases: Record<string, string> = {
 };
 const normalizeCategory = (value: string | null) =>
   value ? (categoryAliases[value] ?? value) : "";
+const catalogHeroVideoUrl =
+  "https://videos.pexels.com/video-files/7578550/7578550-uhd_2560_1440_30fps.mp4";
 
 export function CatalogPage() {
   const searchParams = useSearchParams();
@@ -178,12 +180,18 @@ export function CatalogPage() {
     <main className="page-main" id="main-content">
       <section className={styles.hero}>
         <div className="container">
-          <span>каталог</span>
-          <h1>Ортопедические матрасы</h1>
-          <p>
-            Гибкая фильтрация по цене, размеру, жесткости, бренду, наличию и
-            скидкам. Логика уже готова к переносу на backend API.
-          </p>
+          <video autoPlay loop muted playsInline preload="auto">
+            <source src={catalogHeroVideoUrl} type="video/mp4" />
+          </video>
+          <div className={styles.heroOverlay} />
+          <div className={styles.heroContent}>
+            <span>каталог</span>
+            <h1>Ортопедические матрасы</h1>
+            <p>
+              Гибкая фильтрация по цене, размеру, жесткости, бренду, наличию и
+              скидкам. Логика уже готова к переносу на backend API.
+            </p>
+          </div>
         </div>
       </section>
 

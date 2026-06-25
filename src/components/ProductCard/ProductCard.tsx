@@ -13,9 +13,9 @@ type ProductCardProps = {
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-[var(--radius-lg)] border border-[var(--color-line)] bg-white shadow-[var(--shadow-soft)] transition duration-200 hover:-translate-y-1 hover:border-[var(--color-accent)] hover:shadow-[var(--shadow-lg)]">
+    <article className="flex flex-col overflow-hidden rounded-[22px] border border-white/80 bg-white shadow-[0_14px_38px_rgb(29_32_35/0.07)] transition duration-200 hover:-translate-y-1 hover:border-white hover:shadow-[0_20px_52px_rgb(29_32_35/0.13)]">
       <Link
-        className="group relative block aspect-[1/0.78] overflow-hidden bg-[linear-gradient(135deg,#f9fafb_0%,#f3f4f6_100%)]"
+        className="group relative block aspect-[1/0.82] overflow-hidden bg-[linear-gradient(135deg,#f9fafb_0%,#f3f4f6_100%)]"
         href={`/product/${product.slug}`}
       >
         <img
@@ -26,7 +26,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="absolute left-2.5 top-2.5 flex flex-wrap gap-1.5">
           {product.badges.map((badge) => (
             <span
-              className="rounded-md bg-[linear-gradient(135deg,#fef3c7_0%,#fcd34d_100%)] px-2.5 py-1 text-xs font-bold text-[#7c2d12] shadow-[0_2px_4px_rgb(0_0_0/0.1)] backdrop-blur"
+              className="rounded-md bg-[linear-gradient(135deg,#fff1e8_0%,#ffb18b_100%)] px-2.5 py-1 text-xs font-black text-[#7c2d12] shadow-[0_2px_4px_rgb(0_0_0/0.1)] backdrop-blur"
               key={badge}
             >
               {badge}
@@ -34,7 +34,7 @@ export function ProductCard({ product }: ProductCardProps) {
           ))}
         </div>
         <button
-          className="absolute right-2.5 top-2.5 z-[1] inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-[10px] border-0 bg-white/95 text-[var(--color-ink)] shadow-[0_2px_8px_rgb(0_0_0/0.12)] transition duration-200 hover:scale-110 hover:bg-white hover:text-[var(--color-rose)] hover:shadow-[0_4px_12px_rgb(239_68_68/0.25)] active:scale-95"
+          className="absolute right-2.5 top-2.5 z-[1] inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border-0 bg-white/92 text-[var(--color-ink)] shadow-[0_2px_8px_rgb(0_0_0/0.12)] backdrop-blur transition duration-200 hover:scale-110 hover:bg-white hover:text-[var(--color-rose)] hover:shadow-[0_4px_12px_rgb(239_68_68/0.25)] active:scale-95"
           type="button"
           aria-label="В избранное"
         >
@@ -69,13 +69,13 @@ export function ProductCard({ product }: ProductCardProps) {
             {product.rating} / {product.reviews}
           </span>
         </div>
-        <p className="w-fit rounded-md bg-emerald-500/10 px-2 py-1 text-[13px] font-bold leading-[1.4] text-[var(--color-mint)]">
+        <p className="w-fit rounded-full bg-emerald-500/10 px-2.5 py-1 text-[13px] font-bold leading-[1.4] text-[var(--color-mint)]">
           Завтра, ПВЗ или курьером
         </p>
         <p className="m-0 text-xs leading-[1.4] text-[var(--color-muted)]">
           {product.size} · {product.firmness} · {product.height}
         </p>
-        <div className="mt-auto grid gap-2.5 border-t border-[var(--color-line)] pt-2.5">
+        <div className="mt-auto grid gap-2.5 border-t border-[var(--color-line)] pt-3">
           <div>
             <strong className="block text-xl leading-[1.1] text-[var(--color-ink)]">
               {formatPrice(product.price)}

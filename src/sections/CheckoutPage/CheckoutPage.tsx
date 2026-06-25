@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 import { useAtomValue } from "jotai";
 
 import { cartItemsAtom } from "@/src/store/cart";
@@ -59,6 +60,14 @@ export function CheckoutPage() {
           <label>
             Комментарий
             <textarea name="comment" placeholder="Удобное время доставки" />
+          </label>
+          <label className={styles.agreement}>
+            <input name="agreement" required type="checkbox" />
+            <span>
+              Соглашаюсь с{" "}
+              <Link href="/privacy">политикой конфиденциальности</Link> и{" "}
+              <Link href="/terms">пользовательским соглашением</Link>
+            </span>
           </label>
           <button className="primary-link" type="submit">
             Подтвердить заказ

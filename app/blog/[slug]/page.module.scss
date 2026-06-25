@@ -1,9 +1,22 @@
 .article {
   max-width: 860px;
-  padding-top: 48px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 76%);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 88% 4%, rgb(255 116 51 / 14%), transparent 34%),
+    linear-gradient(135deg, #ffffff 0%, #f4f6f8 100%);
+  box-shadow: var(--shadow-md);
+  margin-top: 24px;
+  padding: 42px;
 
   span {
-    color: var(--color-primary);
+    display: inline-flex;
+    border-radius: 999px;
+    background: var(--color-warm-soft);
+    padding: 7px 11px;
+    color: var(--color-warm);
     font-size: 13px;
     font-weight: 900;
     letter-spacing: 0.08em;
@@ -12,8 +25,8 @@
 
   h1 {
     margin: 12px 0 16px;
-    font-size: clamp(38px, 5vw, 64px);
-    line-height: 1;
+    font-size: clamp(40px, 5vw, 70px);
+    line-height: 0.96;
   }
 }
 
@@ -26,9 +39,10 @@
 .body {
   display: grid;
   gap: 16px;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-lg);
+  border: 1px solid rgb(255 255 255 / 82%);
+  border-radius: 22px;
   background: #fff;
+  box-shadow: var(--shadow-soft);
   margin-top: 28px;
   padding: 28px;
 
@@ -37,5 +51,15 @@
     color: #39414d;
     font-size: 18px;
     line-height: 1.75;
+  }
+}
+
+@media (max-width: 620px) {
+  .article {
+    padding: 28px 20px;
+  }
+
+  .body {
+    padding: 22px;
   }
 }

@@ -36,5 +36,6 @@ export async function POST(request: Request) {
   return ok({
     message: "Аккаунт создан",
     user: { id: user.id, name: user.name, email: user.email },
+    token: `demo-token-${user.id}`,
   });
 }

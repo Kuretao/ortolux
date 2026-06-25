@@ -2,18 +2,26 @@
   display: grid;
   align-items: start;
   gap: 26px;
-  padding-top: 42px;
+  padding-top: 24px;
   grid-template-columns: minmax(0, 1fr) 360px;
+
+  > div:first-child {
+    min-width: 0;
+  }
 
   h1 {
     margin: 10px 0 24px;
-    font-size: clamp(34px, 5vw, 54px);
-    line-height: 1;
+    font-size: clamp(42px, 5vw, 72px);
+    line-height: 0.96;
   }
 }
 
 .kicker {
-  color: var(--color-primary);
+  display: inline-flex;
+  border-radius: 999px;
+  background: var(--color-warm-soft);
+  padding: 7px 11px;
+  color: var(--color-warm);
   font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -23,9 +31,12 @@
 .empty,
 .list,
 .summary {
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-lg);
+  border: 1px solid rgb(255 255 255 / 78%);
+  border-radius: 28px;
   background: #fff;
+  box-shadow:
+    18px 18px 48px rgb(29 32 35 / 8%),
+    inset 1px 1px 0 rgb(255 255 255 / 82%);
 }
 
 .empty {
@@ -44,7 +55,7 @@
   display: grid;
   align-items: center;
   gap: 16px;
-  border-bottom: 1px solid var(--color-line);
+  border-bottom: 1px solid rgb(29 32 35 / 8%);
   padding: 16px;
   grid-template-columns: 96px minmax(0, 1fr) auto auto auto;
 
@@ -55,7 +66,7 @@
   img {
     width: 96px;
     height: 78px;
-    border-radius: 12px;
+    border-radius: 16px;
     object-fit: cover;
   }
 
@@ -88,7 +99,7 @@
     height: 34px;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--color-line);
+    border: 1px solid rgb(229 231 235 / 88%);
     border-radius: 50%;
     background: #fff;
   }
@@ -111,7 +122,10 @@
   top: 96px;
   display: grid;
   gap: 14px;
-  padding: 22px;
+  background:
+    radial-gradient(circle at 18% 0%, rgb(255 116 51 / 10%), transparent 28%),
+    #fff;
+  padding: 24px;
 
   h2 {
     margin: 0 0 4px;
@@ -136,14 +150,15 @@
 
   input {
     min-height: 44px;
-    border: 1px solid var(--color-line);
-    border-radius: 12px;
+    border: 1px solid rgb(229 231 235 / 88%);
+    border-radius: 14px;
+    background: #f8fafc;
     padding: 0 12px;
   }
 }
 
 .total {
-  border-top: 1px solid var(--color-line);
+  border-top: 1px solid rgb(29 32 35 / 8%);
   padding-top: 14px;
 
   strong {

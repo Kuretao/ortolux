@@ -229,7 +229,7 @@ export function Header() {
           <button className="icon-button" type="button" aria-label="Избранное">
             <Heart size={20} />
           </button>
-          <Link className="icon-button" href="/login" aria-label="Профиль">
+          <Link className="icon-button" href="/account" aria-label="Профиль">
             <UserRound size={20} />
           </Link>
           <Link

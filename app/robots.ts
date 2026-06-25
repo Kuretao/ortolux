@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/cart", "/checkout", "/login", "/register", "/api"],
+      disallow: ["/account", "/cart", "/checkout", "/login", "/register", "/api"],
     },
     sitemap: "https://www.ortolux-matras.ru/sitemap.xml",
   };

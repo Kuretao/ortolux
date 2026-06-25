@@ -1,8 +1,33 @@
 .hero {
-  padding: 38px 0 10px;
+  padding: 22px 0 10px;
+
+  :global(.container) {
+    position: relative;
+    overflow: hidden;
+    min-height: 340px;
+    border: 1px solid rgb(255 255 255 / 72%);
+    border-radius: 28px;
+    background: #121417;
+    box-shadow: var(--shadow-lg);
+    padding: 54px;
+  }
+
+  video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   span {
-    color: var(--color-primary);
+    display: inline-flex;
+    width: fit-content;
+    border: 1px solid rgb(255 255 255 / 24%);
+    border-radius: 10px;
+    background: rgb(255 255 255 / 12%);
+    padding: 6px 10px;
+    color: rgb(255 255 255 / 78%);
     font-size: 13px;
     font-weight: 900;
     letter-spacing: 0.08em;
@@ -10,22 +35,37 @@
   }
 
   h1 {
+    max-width: 780px;
     margin: 10px 0;
-    font-size: clamp(36px, 5vw, 58px);
-    line-height: 1;
+    color: #fff;
+    font-size: clamp(46px, 6vw, 82px);
+    line-height: 0.94;
   }
 
   p {
     max-width: 680px;
     margin: 0;
-    color: var(--color-muted);
+    color: rgb(255 255 255 / 78%);
     font-size: 18px;
     line-height: 1.55;
   }
 }
 
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 68% 10%, rgb(255 116 51 / 18%), transparent 30%),
+    linear-gradient(90deg, rgb(0 0 0 / 76%) 0%, rgb(0 0 0 / 50%) 44%, rgb(0 0 0 / 12%) 100%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+}
+
 .catalog {
-  padding-top: 28px;
+  padding-top: 22px;
 }
 
 .layout {
@@ -40,9 +80,14 @@
   top: 96px;
   display: grid;
   gap: 22px;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  background: #fff;
+  border: 1px solid rgb(255 255 255 / 78%);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 20% 0%, rgb(255 116 51 / 10%), transparent 28%),
+    #f4f5f7;
+  box-shadow:
+    14px 18px 42px rgb(29 32 35 / 8%),
+    inset 1px 1px 0 rgb(255 255 255 / 82%);
   padding: 20px;
 }
 
@@ -58,7 +103,7 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
-    border: 1px solid var(--color-line);
+    border: 1px solid rgb(255 255 255 / 80%);
     border-radius: 999px;
     background: #fff;
     margin-left: auto;
@@ -81,8 +126,9 @@
 .filters input[type="text"],
 .filters input:not([type]) {
   min-height: 42px;
-  border: 1px solid var(--color-line);
+  border: 1px solid rgb(229 231 235 / 88%);
   border-radius: 12px;
+  background: #fff;
   padding: 0 12px;
 }
 
@@ -92,7 +138,7 @@
 }
 
 .filterGroup {
-  border-top: 1px solid var(--color-line);
+  border-top: 1px solid rgb(29 32 35 / 9%);
   padding-top: 16px;
 
   summary {
@@ -112,7 +158,7 @@
 
 .chips button {
   min-height: 36px;
-  border: 1px solid var(--color-line);
+  border: 1px solid rgb(229 231 235 / 88%);
   border-radius: 999px;
   background: #fff;
   padding: 0 12px;
@@ -121,9 +167,9 @@
 }
 
 .chips .activeChip {
-  border-color: var(--color-primary);
-  background: #e9f3ff;
-  color: var(--color-primary-dark);
+  border-color: rgb(255 116 51 / 34%);
+  background: var(--color-warm-soft);
+  color: #a53b0e;
 }
 
 .checks label {
@@ -138,11 +184,16 @@
 }
 
 .toolbar {
+  border: 1px solid rgb(255 255 255 / 76%);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: var(--shadow-soft);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 16px;
+  padding: 12px 14px;
 
   span {
     color: var(--color-muted);
@@ -151,7 +202,7 @@
 
   select {
     min-height: 42px;
-    border: 1px solid var(--color-line);
+    border: 1px solid rgb(229 231 235 / 88%);
     border-radius: 999px;
     background: #fff;
     padding: 0 14px;
@@ -169,7 +220,7 @@
 .viewToggle {
   display: inline-flex;
   gap: 4px;
-  border: 1px solid var(--color-line);
+  border: 1px solid rgb(229 231 235 / 88%);
   border-radius: 999px;
   background: #fff;
   padding: 3px;
@@ -205,9 +256,9 @@
     gap: 6px;
     border: 0;
     border-radius: 999px;
-    background: #e9f3ff;
+    background: var(--color-warm-soft);
     padding: 0 12px;
-    color: var(--color-primary-dark);
+    color: #a53b0e;
     font-size: 13px;
     font-weight: 850;
   }
@@ -258,6 +309,13 @@
 }
 
 @media (max-width: 620px) {
+  .hero {
+    :global(.container) {
+      min-height: 300px;
+      padding: 34px 22px;
+    }
+  }
+
   .toolbar {
     align-items: stretch;
     flex-direction: column;

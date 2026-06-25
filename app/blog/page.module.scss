@@ -1,8 +1,25 @@
 .hero {
-  padding-top: 44px;
+  position: relative;
+  overflow: hidden;
+  min-height: 330px;
+  border: 1px solid rgb(255 255 255 / 70%);
+  border-radius: 28px;
+  background:
+    linear-gradient(90deg, rgb(0 0 0 / 72%) 0%, rgb(0 0 0 / 42%) 46%, rgb(0 0 0 / 8%) 100%),
+    url("https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1800&q=86");
+  background-position: center;
+  background-size: cover;
+  box-shadow: var(--shadow-lg);
+  margin-top: 22px;
+  padding: 54px;
 
   span {
-    color: var(--color-primary);
+    display: inline-flex;
+    border: 1px solid rgb(255 255 255 / 24%);
+    border-radius: 10px;
+    background: rgb(255 255 255 / 12%);
+    padding: 6px 10px;
+    color: rgb(255 255 255 / 80%);
     font-size: 13px;
     font-weight: 900;
     letter-spacing: 0.08em;
@@ -12,13 +29,14 @@
   h1 {
     max-width: 820px;
     margin: 12px 0;
-    font-size: clamp(36px, 5vw, 58px);
-    line-height: 1;
+    color: #fff;
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 0.95;
   }
 
   p {
     max-width: 720px;
-    color: var(--color-muted);
+    color: rgb(255 255 255 / 78%);
     font-size: 18px;
     line-height: 1.65;
   }
@@ -27,18 +45,57 @@
 .grid {
   display: grid;
   gap: 16px;
-  padding-top: 24px;
+  padding-top: 22px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .card {
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-md);
-  background: #fff;
-  padding: 22px;
+  position: relative;
+  overflow: hidden;
+  min-height: 270px;
+  border: 1px solid rgb(255 255 255 / 78%);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 18% 0%, rgb(255 116 51 / 13%), transparent 34%),
+    linear-gradient(135deg, #ffffff 0%, #f4f6f8 100%);
+  box-shadow: var(--shadow-soft);
+  padding: 24px;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  &::after {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--color-ink);
+    color: #fff;
+    content: ">";
+    display: grid;
+    font-size: 24px;
+    font-weight: 900;
+    place-items: center;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+
+  &:hover::after {
+    transform: translateX(4px);
+  }
 
   span {
-    color: var(--color-primary);
+    display: inline-flex;
+    border-radius: 999px;
+    background: var(--color-warm-soft);
+    padding: 6px 10px;
+    color: var(--color-warm);
     font-size: 13px;
     font-weight: 900;
   }
@@ -50,6 +107,7 @@
   }
 
   p {
+    max-width: 90%;
     color: var(--color-muted);
     line-height: 1.55;
   }
@@ -63,5 +121,11 @@
 @media (max-width: 860px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero {
+    padding: 34px 22px;
   }
 }

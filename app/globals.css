@@ -12,6 +12,8 @@
   --color-primary-dark: #0f1117;
   --color-accent: #3b82f6;
   --color-accent-light: #dbeafe;
+  --color-warm: #ff7433;
+  --color-warm-soft: #fff1e8;
   --color-mint: #10b981;
   --color-rose: #ef4444;
   --color-amber: #f59e0b;
@@ -57,7 +59,9 @@ html {
 body {
   min-width: 320px;
   margin: 0;
-  background: #ffffff;
+  background:
+    radial-gradient(circle at 18% 0%, rgb(255 116 51 / 8%), transparent 28%),
+    linear-gradient(180deg, #ffffff 0%, #f6f7f9 42%, #ffffff 100%);
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-size: 15px;
@@ -96,6 +100,63 @@ button {
   cursor: pointer;
 }
 
+input[type="checkbox"] {
+  appearance: none;
+  display: inline-grid;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  place-items: center;
+  border: 1.5px solid #cfd5dd;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow:
+    inset 1px 1px 0 rgb(255 255 255 / 82%),
+    0 1px 2px rgb(15 23 42 / 6%);
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+input[type="checkbox"]::before {
+  width: 10px;
+  height: 7px;
+  border: solid #fff;
+  border-width: 0 0 2px 2px;
+  content: "";
+  opacity: 0;
+  transform: rotate(-45deg) scale(0.7) translate(1px, -1px);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+input[type="checkbox"]:checked {
+  border-color: var(--color-ink);
+  background: linear-gradient(135deg, var(--color-ink), var(--color-primary-dark));
+  box-shadow:
+    0 0 0 3px rgb(29 32 35 / 10%),
+    0 8px 18px rgb(29 32 35 / 14%);
+}
+
+input[type="checkbox"]:checked::before {
+  opacity: 1;
+  transform: rotate(-45deg) scale(1) translate(1px, -1px);
+}
+
+input[type="checkbox"]:hover {
+  border-color: #9aa3af;
+  transform: translateY(-1px);
+}
+
+input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
 :focus-visible {
   outline: 3px solid rgb(255 204 0 / 58%);
   outline-offset: 3px;
@@ -112,6 +173,7 @@ img {
 }
 
 .page-main {
+  overflow: clip;
   padding-bottom: 72px;
 }
 
@@ -167,8 +229,9 @@ img {
   min-height: 44px;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   border: 2px solid transparent;
-  border-radius: var(--radius-md);
+  border-radius: 13px;
   padding: 0 18px;
   font-size: 15px;
   font-weight: 700;
@@ -176,7 +239,7 @@ img {
 }
 
 .primary-link {
-  background: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: #fff;
   box-shadow: var(--shadow-md);
 }

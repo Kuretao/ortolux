@@ -13,10 +13,19 @@ export function Partners({ compact = false }: PartnersProps) {
   return (
     <section className={compact ? "section" : styles.pageSection}>
       <div className="container">
-        <SectionHeading
-          title="Партнеры и интеграции"
-          text="Логистика, поставщики и сервисы, под которые уже заложена архитектура магазина."
-        />
+        <div className={compact ? undefined : styles.hero}>
+          <SectionHeading
+            title="Партнеры и интеграции"
+            text="Логистика, поставщики и сервисы, под которые уже заложена архитектура магазина."
+          />
+          {!compact ? (
+            <aside className={styles.pipeline} aria-label="Схема интеграций">
+              <span>API-контур</span>
+              <strong>Catalog → Order → Delivery → CRM</strong>
+              <p>Единая цепочка для остатков, заказов, статусов и документов.</p>
+            </aside>
+          ) : null}
+        </div>
         <div className={styles.grid}>
           {items.map((partner) => (
             <article className={styles.card} key={partner.id}>

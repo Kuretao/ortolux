@@ -14,6 +14,7 @@ export default function Page() {
       eyebrow="доставка"
       title="Доставка матрасов и товаров для сна"
       description="Для MVP заложен единый принцип расчета доставки. В дальнейшем он подключается к провайдерам через backend-фасад."
+      variant="delivery"
       items={[
         {
           title: "По городу",
