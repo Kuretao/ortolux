@@ -69,11 +69,11 @@ export function CitySelector() {
 
   const modal = isOpen ? (
     <div
-      className="fixed inset-0 z-[1000] flex items-start justify-center bg-[rgb(15_23_42/0.54)] px-4 pb-8 pt-[15vh] backdrop-blur-[2px] max-sm:pt-[10vh]"
+      className="fixed inset-0 z-[1000] flex animate-[fadeIn_0.18s_ease] items-start justify-center bg-[rgb(15_23_42/0.54)] px-4 pb-8 pt-[15vh] backdrop-blur-[2px] max-sm:pt-[10vh]"
       role="dialog"
       aria-modal="true"
     >
-      <div className="relative w-[min(100%,620px)] overflow-hidden rounded-[22px] bg-white shadow-[0_30px_110px_rgb(15_23_42/0.28)]">
+      <div className="relative w-[min(100%,620px)] animate-[slideDown_0.22s_ease] overflow-hidden rounded-[22px] bg-white shadow-[0_30px_110px_rgb(15_23_42/0.28)]">
         <button
           className="absolute right-4 top-4 z-[2] inline-flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-line)] bg-white/90 text-[var(--color-ink)] shadow-[var(--shadow-soft)] transition duration-200 hover:bg-[#f4f6f8]"
           type="button"

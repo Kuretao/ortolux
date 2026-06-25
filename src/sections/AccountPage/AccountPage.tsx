@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useAtomValue, useSetAtom } from "jotai";
 import {
   ArrowRight,
+  Edit3,
   Heart,
   LogOut,
   MapPin,
@@ -20,6 +21,7 @@ import {
 import { products } from "@/src/data/shop";
 import { authSessionAtom, logoutAuthAtom } from "@/src/store/auth";
 import { cartItemsAtom } from "@/src/store/cart";
+import { favoriteProductIdsAtom } from "@/src/store/favorites";
 import { formatPrice } from "@/src/utils/format";
 
 import styles from "./AccountPage.module.scss";
@@ -31,6 +33,7 @@ export function AccountPage() {
   const router = useRouter();
   const session = useAtomValue(authSessionAtom);
   const cartItems = useAtomValue(cartItemsAtom);
+  const favoriteIds = useAtomValue(favoriteProductIdsAtom);
   const logout = useSetAtom(logoutAuthAtom);
 
   const cartLines = useMemo(
@@ -116,6 +119,9 @@ export function AccountPage() {
           <strong>{session.user.name}</strong>
           <span>{session.user.email}</span>
           <small>demo-сессия активна</small>
+          <Link href="/account/edit">
+            <Edit3 size={16} /> Редактировать
+          </Link>
         </aside>
       </section>
 
@@ -133,7 +139,7 @@ export function AccountPage() {
         <article>
           <Heart size={22} />
           <span>Избранное</span>
-          <strong>3</strong>
+          <strong>{favoriteIds.length}</strong>
         </article>
         <article>
           <MapPin size={22} />
@@ -207,6 +213,38 @@ export function AccountPage() {
         </div>
 
         <aside className={styles.sideColumn}>
+          <article className={styles.profileDetails}>
+            <div className={styles.panelHeader}>
+              <div>
+                <span>профиль</span>
+                <h2>Подробная информация</h2>
+              </div>
+            </div>
+            <dl>
+              <div>
+                <dt>Телефон</dt>
+                <dd>{session.user.phone || "Не указан"}</dd>
+              </div>
+              <div>
+                <dt>Город</dt>
+                <dd>{session.user.city || "Москва"}</dd>
+              </div>
+              <div>
+                <dt>Адрес</dt>
+                <dd>{session.user.address || "Уточняется при заказе"}</dd>
+              </div>
+              <div>
+                <dt>Жесткость</dt>
+                <dd>{session.user.sleepPreference || "Средняя жесткость"}</dd>
+              </div>
+              <div>
+                <dt>Размер</dt>
+                <dd>{session.user.preferredSize || "160 x 200"}</dd>
+              </div>
+            </dl>
+            <Link href="/account/edit">Изменить профиль</Link>
+          </article>
+
           <article className={styles.sidePanel}>
             <Sparkles size={22} />
             <h2>Персональный сервис</h2>

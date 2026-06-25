@@ -7,6 +7,11 @@ export type AuthUser = {
   id: string;
   name: string;
   email: string;
+  phone?: string;
+  city?: string;
+  address?: string;
+  sleepPreference?: string;
+  preferredSize?: string;
 };
 
 export type AuthSession = {

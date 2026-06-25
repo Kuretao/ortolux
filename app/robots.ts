@@ -5,7 +5,16 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/account", "/cart", "/checkout", "/login", "/register", "/api"],
+      disallow: [
+        "/account",
+        "/cart",
+        "/checkout",
+        "/compare",
+        "/favorites",
+        "/login",
+        "/register",
+        "/api",
+      ],
     },
     sitemap: "https://www.ortolux-matras.ru/sitemap.xml",
   };

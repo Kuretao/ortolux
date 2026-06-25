@@ -7,6 +7,7 @@ import {
   Heart,
   House,
   Menu,
+  Scale,
   Search,
   ShoppingCart,
   Sofa,
@@ -17,6 +18,8 @@ import { useState } from "react";
 
 import { CitySelector } from "@/src/components/CitySelector/CitySelector";
 import { cartCountAtom } from "@/src/store/cart";
+import { compareCountAtom } from "@/src/store/compare";
+import { favoriteCountAtom } from "@/src/store/favorites";
 
 const navItems = [
   { label: "Матрасы", href: "/catalog?category=mattresses" },
@@ -164,6 +167,8 @@ const catalogGroups = [
 
 export function Header() {
   const cartCount = useAtomValue(cartCountAtom);
+  const compareCount = useAtomValue(compareCountAtom);
+  const favoriteCount = useAtomValue(favoriteCountAtom);
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
   const [activeGroupIndex, setActiveGroupIndex] = useState(0);
   const activeGroup = catalogGroups[activeGroupIndex];
@@ -226,9 +231,22 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2.5 max-[980px]:col-span-full max-[980px]:justify-end max-[720px]:col-auto">
-          <button className="icon-button" type="button" aria-label="Избранное">
+          <Link className="icon-button relative" href="/favorites" aria-label="Избранное">
             <Heart size={20} />
-          </button>
+            {favoriteCount > 0 ? (
+              <span className="absolute -right-2 -top-2 inline-flex h-[22px] min-w-[22px] items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-rose)_0%,#dc2626_100%)] text-[11px] font-extrabold text-white shadow-[0_2px_6px_rgb(239_68_68/0.3)]">
+                {favoriteCount}
+              </span>
+            ) : null}
+          </Link>
+          <Link className="icon-button relative" href="/compare" aria-label="Сравнение">
+            <Scale size={20} />
+            {compareCount > 0 ? (
+              <span className="absolute -right-2 -top-2 inline-flex h-[22px] min-w-[22px] items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-accent)_0%,#1d4ed8_100%)] text-[11px] font-extrabold text-white shadow-[0_2px_6px_rgb(59_130_246/0.3)]">
+                {compareCount}
+              </span>
+            ) : null}
+          </Link>
           <Link className="icon-button" href="/account" aria-label="Профиль">
             <UserRound size={20} />
           </Link>

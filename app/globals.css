@@ -48,6 +48,16 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -94,6 +104,33 @@ button,
 input,
 select {
   font: inherit;
+}
+
+select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--color-muted) 50%),
+    linear-gradient(135deg, var(--color-muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 13px) 50%;
+  background-repeat: no-repeat;
+  background-size:
+    5px 5px,
+    5px 5px;
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+select:hover {
+  border-color: #cbd2da !important;
+}
+
+select:focus {
+  border-color: var(--color-ink) !important;
+  box-shadow: 0 0 0 3px rgb(29 32 35 / 10%);
 }
 
 button {
@@ -155,6 +192,35 @@ input[type="checkbox"]:hover {
 input[type="checkbox"]:disabled {
   cursor: not-allowed;
   opacity: 0.55;
+}
+
+details {
+  interpolate-size: allow-keywords;
+}
+
+details summary {
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+@supports selector(::details-content) {
+  details::details-content {
+    block-size: 0;
+    opacity: 0;
+    overflow: clip;
+    transition:
+      block-size 0.28s ease,
+      opacity 0.22s ease,
+      content-visibility 0.28s ease allow-discrete;
+  }
+
+  details[open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
 }
 
 :focus-visible {

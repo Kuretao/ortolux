@@ -25,6 +25,8 @@ const columns = [
       { label: "Доставка и подъем", href: "/delivery" },
       { label: "Оплата", href: "/payment" },
       { label: "Гарантия и возврат", href: "/guarantee" },
+      { label: "Избранное", href: "/favorites" },
+      { label: "Сравнение", href: "/compare" },
       { label: "Корзина", href: "/cart" },
       { label: "Личный кабинет", href: "/account" },
     ],
