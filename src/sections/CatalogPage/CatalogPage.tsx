@@ -6,6 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { Grid2X2, List, RotateCcw, SlidersHorizontal, X } from "lucide-react";
 
 import { ProductCard } from "@/src/components/ProductCard/ProductCard";
+import { CustomSelect } from "@/src/components/CustomSelect/CustomSelect";
 import { products } from "@/src/data/shop";
 import type { Product } from "@/src/types/shop";
 
@@ -319,18 +320,25 @@ export function CatalogPage() {
             <div className={styles.toolbar}>
               <span>{filteredProducts.length} товаров найдено</span>
               <div className={styles.toolbarActions}>
-                <select
+                <CustomSelect
                   value={sort}
-                  aria-label="Сортировка"
-                  onChange={(event) => setSort(event.target.value as SortValue)}
-                >
-                  <option value="popular">Сначала популярные</option>
-                  <option value="price_asc">Сначала дешевле</option>
-                  <option value="price_desc">Сначала дороже</option>
-                  <option value="new">Сначала новинки</option>
-                  <option value="rating">Сначала рейтинг</option>
-                </select>
+                  ariaLabel="Сортировка"
+                  onChange={(nextValue) => setSort(nextValue as SortValue)}
+                  options={[
+                    { value: "popular", label: "Сначала популярные" },
+                    { value: "price_asc", label: "Сначала дешевле" },
+                    { value: "price_desc", label: "Сначала дороже" },
+                    { value: "new", label: "Сначала новинки" },
+                    { value: "rating", label: "Сначала рейтинг" },
+                  ]}
+                />
                 <div className={styles.viewToggle}>
+                  <span
+                    className={`${styles.viewIndicator} ${
+                      view === "list" ? styles.viewIndicatorList : ""
+                    }`}
+                    aria-hidden="true"
+                  />
                   <button
                     className={view === "grid" ? styles.activeView : ""}
                     type="button"

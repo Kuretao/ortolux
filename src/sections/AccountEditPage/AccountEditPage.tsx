@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useAtom } from "jotai";
 import { ArrowLeft, Save } from "lucide-react";
 
+import { CustomSelect } from "@/src/components/CustomSelect/CustomSelect";
 import { authSessionAtom } from "@/src/store/auth";
 
 import styles from "./AccountEditPage.module.scss";
@@ -109,27 +110,29 @@ export function AccountEditPage() {
             </label>
             <label>
               Предпочтение по жесткости
-              <select
+              <CustomSelect
                 name="sleepPreference"
                 defaultValue={session.user.sleepPreference ?? "Средняя жесткость"}
-              >
-                <option>Мягкая поддержка</option>
-                <option>Средняя жесткость</option>
-                <option>Жесткая поддержка</option>
-                <option>Разносторонний матрас</option>
-              </select>
+                options={[
+                  { value: "Мягкая поддержка", label: "Мягкая поддержка" },
+                  { value: "Средняя жесткость", label: "Средняя жесткость" },
+                  { value: "Жесткая поддержка", label: "Жесткая поддержка" },
+                  { value: "Разносторонний матрас", label: "Разносторонний матрас" },
+                ]}
+              />
             </label>
             <label>
               Любимый размер
-              <select
+              <CustomSelect
                 name="preferredSize"
                 defaultValue={session.user.preferredSize ?? "160 x 200"}
-              >
-                <option>90 x 200</option>
-                <option>140 x 200</option>
-                <option>160 x 200</option>
-                <option>180 x 200</option>
-              </select>
+                options={[
+                  { value: "90 x 200", label: "90 x 200" },
+                  { value: "140 x 200", label: "140 x 200" },
+                  { value: "160 x 200", label: "160 x 200" },
+                  { value: "180 x 200", label: "180 x 200" },
+                ]}
+              />
             </label>
           </div>
 

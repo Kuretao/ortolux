@@ -20,6 +20,7 @@ import { FormEvent, useMemo, useState } from "react";
 import { useAtomValue, useSetAtom } from "jotai";
 
 import { AddToCartButton } from "@/src/components/AddToCartButton/AddToCartButton";
+import { CustomSelect } from "@/src/components/CustomSelect/CustomSelect";
 import { ProductCard } from "@/src/components/ProductCard/ProductCard";
 import { blogArticles, products } from "@/src/data/shop";
 import {
@@ -411,11 +412,15 @@ export function ProductDetails({ product }: ProductDetailsProps) {
           </label>
           <label>
             Оценка
-            <select name="rating" defaultValue="5">
-              <option value="5">5 - отлично</option>
-              <option value="4">4 - хорошо</option>
-              <option value="3">3 - нормально</option>
-            </select>
+            <CustomSelect
+              name="rating"
+              defaultValue="5"
+              options={[
+                { value: "5", label: "5 - отлично" },
+                { value: "4", label: "4 - хорошо" },
+                { value: "3", label: "3 - нормально" },
+              ]}
+            />
           </label>
           <label className={styles.fullField}>
             Отзыв

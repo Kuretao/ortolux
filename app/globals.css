@@ -224,8 +224,8 @@ details summary::-webkit-details-marker {
 }
 
 :focus-visible {
-  outline: 3px solid rgb(255 204 0 / 58%);
-  outline-offset: 3px;
+  outline: 0;
+  box-shadow: 0 0 0 4px rgb(255 116 51 / 18%);
 }
 
 img {
