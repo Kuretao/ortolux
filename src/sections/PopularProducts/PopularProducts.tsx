@@ -20,14 +20,14 @@ export function PopularProducts({ products }: PopularProductsProps) {
   }
 
   return (
-    <section className="section !pb-16 !pt-10">
+    <section className="section !pb-12 !pt-8 max-[640px]:!pb-8 max-[640px]:!pt-6">
       <div className="container">
         <div className="mb-5 grid items-end gap-4 lg:grid-cols-[minmax(0,0.92fr)_minmax(320px,0.48fr)]">
           <div>
             <span className="text-xs font-black uppercase tracking-[0.08em] text-[#ff7433]">
               витрина недели
             </span>
-            <h2 className="mt-2 max-w-[780px] text-[clamp(36px,4.8vw,68px)] font-black leading-[0.92] tracking-normal">
+            <h2 className="mt-2 max-w-[780px] text-[clamp(30px,4.8vw,68px)] font-black leading-[0.96] tracking-normal">
               Популярные товары
             </h2>
           </div>
@@ -38,10 +38,10 @@ export function PopularProducts({ products }: PopularProductsProps) {
         </div>
 
         <div
-          className="home-neomorph grid gap-3 rounded-[28px] bg-[#f4f5f7] p-3 lg:grid-cols-12 lg:grid-rows-[repeat(3,minmax(0,188px))]"
+          className="home-neomorph flex snap-x gap-3 overflow-x-auto rounded-[28px] bg-[#f4f5f7] p-3 max-[640px]:rounded-[20px] lg:grid lg:grid-cols-12 lg:overflow-visible lg:grid-rows-[repeat(3,minmax(0,172px))] xl:grid-rows-[repeat(3,minmax(0,188px))]"
           data-gsap="product-showcase"
         >
-          <article className="relative isolate grid min-h-[560px] overflow-hidden rounded-[22px] bg-[#121417] p-5 text-white shadow-[0_18px_48px_rgb(29_32_35/0.12)] md:p-7 lg:col-span-7 lg:row-span-3 lg:min-h-0">
+          <article className="relative isolate grid min-h-[430px] min-w-[86vw] snap-start overflow-hidden rounded-[22px] bg-[#121417] p-5 text-white shadow-[0_18px_48px_rgb(29_32_35/0.12)] md:min-w-[52vw] lg:col-span-7 lg:row-span-3 lg:min-h-0 lg:min-w-0 lg:p-7">
             <img
               className="absolute inset-0 -z-20 h-full w-full object-cover"
               src={heroProduct.image}
@@ -62,7 +62,7 @@ export function PopularProducts({ products }: PopularProductsProps) {
                 <p className="mb-3 text-sm font-black uppercase tracking-[0.08em] !text-white/70">
                   {heroProduct.brand} / {heroProduct.size}
                 </p>
-                <h3 className="m-0 text-[clamp(42px,6vw,84px)] font-black leading-[0.9] !text-white">
+                <h3 className="m-0 text-[clamp(31px,6vw,84px)] font-black leading-[0.94] !text-white">
                   {heroProduct.title}
                 </h3>
                 <p className="mt-5 max-w-[510px] text-[17px] leading-[1.55] !text-white/76">
@@ -74,7 +74,7 @@ export function PopularProducts({ products }: PopularProductsProps) {
                     <span className="block text-xs font-black uppercase !text-white/60">
                       цена сейчас
                     </span>
-                    <strong className="mt-2 block text-[34px] leading-none !text-white">
+                    <strong className="mt-2 block text-[28px] leading-none !text-white md:text-[34px]">
                       {formatPrice(heroProduct.price)}
                     </strong>
                     {heroProduct.oldPrice ? (
@@ -105,7 +105,7 @@ export function PopularProducts({ products }: PopularProductsProps) {
             />
           ) : null}
 
-          <article className="grid min-h-[260px] content-between overflow-hidden rounded-[22px] bg-[#ff7433] p-6 text-white shadow-[0_18px_48px_rgb(255_116_51/0.22)] lg:col-span-2 lg:row-span-2 lg:min-h-0 [&_*]:!text-white">
+          <article className="grid min-h-[240px] min-w-[72vw] snap-start content-between overflow-hidden rounded-[22px] bg-[#ff7433] p-6 text-white shadow-[0_18px_48px_rgb(255_116_51/0.22)] md:min-w-[38vw] lg:col-span-2 lg:row-span-2 lg:min-h-0 lg:min-w-0 [&_*]:!text-white">
             <Sparkles size={28} />
             <div>
               <span className="text-xs font-black uppercase text-white/72">
@@ -153,7 +153,7 @@ function ProductSpotlight({
 
   return (
     <Link
-      className={`group relative isolate grid min-h-[260px] overflow-hidden rounded-[22px] p-5 shadow-[0_18px_48px_rgb(29_32_35/0.1)] ${className} ${
+      className={`group relative isolate grid min-h-[240px] min-w-[72vw] snap-start overflow-hidden rounded-[22px] p-5 shadow-[0_18px_48px_rgb(29_32_35/0.1)] md:min-w-[38vw] lg:min-w-0 ${className} ${
         isDark ? "bg-[#151719] text-white [&_*]:!text-white" : "bg-white text-[var(--color-ink)]"
       }`}
       href={`/product/${product.slug}`}
@@ -176,7 +176,7 @@ function ProductSpotlight({
           </span>
         </div>
         <div>
-          <h3 className="m-0 max-w-[300px] text-[30px] font-black leading-[1]">
+          <h3 className="m-0 max-w-[300px] text-[25px] font-black leading-[1] md:text-[30px]">
             {product.title}
           </h3>
           <div className="mt-3 flex items-end justify-between gap-3">
@@ -201,7 +201,7 @@ function ProductSpotlight({
 function CompactProduct({ product, className = "" }: { product: Product; className?: string }) {
   return (
     <Link
-      className={`group relative isolate grid min-h-[170px] content-end overflow-hidden rounded-[22px] bg-white p-4 shadow-[0_14px_38px_rgb(29_32_35/0.08)] transition duration-200 hover:-translate-y-1 ${className}`}
+      className={`group relative isolate grid min-h-[240px] min-w-[72vw] snap-start content-end overflow-hidden rounded-[22px] bg-white p-4 shadow-[0_14px_38px_rgb(29_32_35/0.08)] transition duration-200 hover:-translate-y-1 md:min-w-[38vw] lg:min-h-[170px] lg:min-w-0 ${className}`}
       href={`/product/${product.slug}`}
     >
       <img

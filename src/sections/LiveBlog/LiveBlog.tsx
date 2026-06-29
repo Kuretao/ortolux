@@ -53,12 +53,12 @@ export function LiveBlog() {
   const articles = blogArticles.slice(0, 4);
 
   return (
-    <section className="section !py-16">
+    <section className="section !py-12 max-[640px]:!py-8">
       <div className="container">
-        <div className="home-neomorph-dark relative overflow-hidden rounded-[28px] bg-[#121417] p-3 text-white shadow-[0_22px_70px_rgb(29_32_35/0.12)]" data-gsap="media-grid">
-          <div className="grid gap-3 xl:grid-cols-12 xl:grid-rows-[repeat(4,minmax(0,230px))]">
+        <div className="home-neomorph-dark relative overflow-hidden rounded-[28px] bg-[#121417] p-3 text-white shadow-[0_22px_70px_rgb(29_32_35/0.12)] max-[640px]:rounded-[20px]" data-gsap="media-grid">
+          <div className="flex snap-x gap-3 overflow-x-auto xl:grid xl:grid-cols-12 xl:overflow-visible xl:grid-rows-[repeat(4,minmax(0,210px))]">
             <Link
-              className="group relative isolate grid min-h-[620px] overflow-hidden rounded-[22px] p-6 md:p-9 xl:col-span-7 xl:row-span-3 xl:col-start-1 xl:row-start-1 xl:min-h-0 [&_*]:!text-white"
+              className="group relative isolate grid min-h-[430px] min-w-[86vw] snap-start overflow-hidden rounded-[22px] p-5 md:min-w-[52vw] md:p-8 xl:col-span-7 xl:row-span-3 xl:col-start-1 xl:row-start-1 xl:min-h-0 xl:min-w-0 [&_*]:!text-white"
               href={magazineCards[0].href}
             >
               <video
@@ -85,7 +85,7 @@ export function LiveBlog() {
                   <span className="text-xs font-black uppercase tracking-[0.08em] text-white/65">
                     {magazineCards[0].label}
                   </span>
-                  <h2 className="mt-3 max-w-[620px] text-[clamp(44px,6vw,88px)] font-black leading-[0.9]">
+                  <h2 className="mt-3 max-w-[620px] text-[clamp(31px,6vw,88px)] font-black leading-[0.94]">
                     Журнал, который продает через пользу
                   </h2>
                   <p className="mt-5 max-w-[520px] text-[17px] leading-[1.55] text-white/74">
@@ -98,11 +98,11 @@ export function LiveBlog() {
               </div>
             </Link>
 
-            <article className="grid min-h-[290px] content-between rounded-[22px] bg-[#ff7433] p-6 text-white xl:col-span-2 xl:row-span-2 xl:col-start-8 xl:row-start-1 xl:min-h-0 [&_*]:!text-white">
+            <article className="grid min-h-[240px] min-w-[72vw] snap-start content-between rounded-[22px] bg-[#ff7433] p-6 text-white md:min-w-[38vw] xl:col-span-2 xl:row-span-2 xl:col-start-8 xl:row-start-1 xl:min-h-0 xl:min-w-0 [&_*]:!text-white">
               <span className="text-xs font-black uppercase text-white/75">
                 формат
               </span>
-              <strong className="text-[52px] leading-[0.9]">
+              <strong className="text-[42px] leading-[0.9] md:text-[52px]">
                 5 мин
               </strong>
               <p className="m-0 text-sm leading-[1.45] text-white/78">
@@ -115,7 +115,7 @@ export function LiveBlog() {
               className="xl:col-span-3 xl:row-span-2 xl:col-start-10 xl:row-start-1 xl:min-h-0"
             />
 
-            <article className="grid min-h-[220px] content-between rounded-[22px] bg-white p-6 text-[var(--color-ink)] xl:col-span-2 xl:row-span-1 xl:col-start-8 xl:row-start-3 xl:min-h-0">
+            <article className="grid min-h-[220px] min-w-[72vw] snap-start content-between rounded-[22px] bg-white p-6 text-[var(--color-ink)] md:min-w-[38vw] xl:col-span-2 xl:row-span-1 xl:col-start-8 xl:row-start-3 xl:min-h-0 xl:min-w-0">
               <span className="text-xs font-black uppercase text-[#ff7433]">
                 чеклист
               </span>
@@ -163,7 +163,7 @@ function ArticleCard({
 }) {
   return (
     <Link
-      className={`group grid min-h-[230px] content-between gap-4 rounded-[20px] bg-white p-5 !text-[var(--color-ink)] transition duration-200 hover:-translate-y-1 xl:min-h-0 ${className}`}
+      className={`group grid min-h-[220px] min-w-[72vw] snap-start content-between gap-4 rounded-[20px] bg-white p-5 !text-[var(--color-ink)] transition duration-200 hover:-translate-y-1 md:min-w-[38vw] xl:min-h-0 xl:min-w-0 ${className}`}
       href={`/blog/${article.slug}`}
     >
       <span className="text-xs font-black uppercase !text-[#ff7433]">
@@ -201,7 +201,7 @@ function ImageStory({
 }) {
   return (
     <Link
-      className={`group relative isolate grid min-h-[260px] overflow-hidden rounded-[22px] p-5 text-white transition duration-200 hover:-translate-y-1 ${className} [&_*]:!text-white`}
+      className={`group relative isolate grid min-h-[240px] min-w-[72vw] snap-start overflow-hidden rounded-[22px] p-5 text-white transition duration-200 hover:-translate-y-1 md:min-w-[38vw] xl:min-w-0 ${className} [&_*]:!text-white`}
       href={card.href}
     >
       <img

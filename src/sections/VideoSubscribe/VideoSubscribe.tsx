@@ -11,10 +11,10 @@ const perks = [
 
 export function VideoSubscribe() {
   return (
-    <section className="section !py-16">
+    <section className="section !py-12 max-[640px]:!py-8">
       <div className="container">
-        <div className="home-neomorph grid gap-3 rounded-[30px] bg-[#f4f5f7] p-3 lg:grid-cols-12" data-gsap="media-grid">
-          <div className="relative isolate min-h-[520px] overflow-hidden rounded-[28px] bg-[#121417] p-6 text-white shadow-[0_22px_70px_rgb(29_32_35/0.12)] md:p-9 lg:col-span-8 [&_*]:!text-white">
+        <div className="home-neomorph grid gap-3 rounded-[30px] bg-[#f4f5f7] p-3 max-[640px]:rounded-[20px] lg:grid-cols-12" data-gsap="media-grid">
+          <div className="relative isolate min-h-[430px] overflow-hidden rounded-[24px] bg-[#121417] p-5 text-white shadow-[0_22px_70px_rgb(29_32_35/0.12)] md:p-8 lg:col-span-8 xl:min-h-[520px] [&_*]:!text-white">
             <video
               className="absolute inset-0 -z-20 h-full w-full object-cover"
               autoPlay
@@ -31,15 +31,15 @@ export function VideoSubscribe() {
               </span>
 
               <div className="max-w-[670px]">
-                <h2 className="m-0 text-[clamp(38px,5vw,72px)] font-black leading-[0.92]">
+                <h2 className="m-0 text-[clamp(30px,5vw,72px)] font-black leading-[0.96]">
                   Акции, комплекты и гайды по сну в одном письме
                 </h2>
-                <p className="mt-5 max-w-[560px] text-[17px] leading-[1.55] text-white/74">
+                <p className="mt-4 max-w-[560px] text-[15px] leading-[1.5] text-white/74 md:text-[17px]">
                   Письма выглядят как короткий журнал: что купить, с чем сочетать,
                   какой размер выбрать и где можно сэкономить без потери качества.
                 </p>
 
-                <form className="mt-7 grid max-w-[650px] gap-2 rounded-[18px] bg-white p-2 sm:grid-cols-[1fr_auto]">
+                <form className="mt-6 grid max-w-[650px] gap-2 rounded-[18px] bg-white p-2 sm:grid-cols-[1fr_auto]">
                   <input
                     className="min-h-[56px] rounded-[12px] border-0 bg-[#f3f5f7] px-4 text-[16px] font-semibold !text-[var(--color-ink)] outline-0 placeholder:!text-[#737a82]"
                     placeholder="Ваш email"
@@ -58,11 +58,11 @@ export function VideoSubscribe() {
           </div>
 
           <div className="grid gap-3 lg:col-span-4">
-            <article className="grid min-h-[248px] content-between rounded-[26px] bg-[#ff7433] p-6 text-white shadow-[0_18px_48px_rgb(255_116_51/0.2)] [&_*]:!text-white">
+            <article className="grid min-h-[210px] content-between rounded-[22px] bg-[#ff7433] p-6 text-white shadow-[0_18px_48px_rgb(255_116_51/0.2)] lg:min-h-[248px] [&_*]:!text-white">
               <span className="text-xs font-black uppercase text-white/75">
                 только подписчикам
               </span>
-              <strong className="text-[54px] leading-[0.9]">
+              <strong className="text-[42px] leading-[0.9] md:text-[54px]">
                 -10%
               </strong>
               <p className="m-0 max-w-[260px] text-sm leading-[1.45] text-white/78">
@@ -70,10 +70,10 @@ export function VideoSubscribe() {
               </p>
             </article>
 
-            <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+            <div className="flex snap-x gap-3 overflow-x-auto sm:grid sm:grid-cols-3 sm:overflow-visible lg:grid-cols-1">
               {perks.map(({ icon: Icon, title, text }) => (
                 <article
-                  className="grid min-h-[120px] grid-cols-[42px_1fr] items-center gap-3 rounded-[22px] border border-[rgb(29_32_35/0.08)] bg-white p-4 shadow-[0_14px_38px_rgb(29_32_35/0.06)]"
+                  className="grid min-h-[112px] min-w-[74vw] snap-start grid-cols-[42px_1fr] items-center gap-3 rounded-[20px] border border-[rgb(29_32_35/0.08)] bg-white p-4 shadow-[0_14px_38px_rgb(29_32_35/0.06)] sm:min-w-0"
                   key={title}
                 >
                   <span className="grid h-11 w-11 place-items-center rounded-full bg-[#fff0e8] text-[#ff7433]">

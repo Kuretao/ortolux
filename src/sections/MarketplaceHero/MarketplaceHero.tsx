@@ -27,12 +27,12 @@ export function MarketplaceHero() {
   }, []);
 
   return (
-    <section className="pt-3.5">
+    <section className="pt-3.5 max-[640px]:pt-2">
       <div
-        className="container home-neomorph grid gap-4 rounded-[28px] bg-[#f4f5f7] p-3 lg:grid-cols-[minmax(0,1fr)_430px]"
+        className="container home-neomorph flex snap-x gap-3 overflow-x-auto rounded-[28px] bg-[#f4f5f7] p-3 max-[640px]:rounded-[20px] md:grid md:grid-cols-[minmax(0,1fr)_260px] md:overflow-visible lg:grid-cols-[minmax(0,1fr)_360px] xl:grid-cols-[minmax(0,1fr)_430px]"
         data-gsap="media-grid"
       >
-        <div className="relative min-h-[430px] overflow-hidden rounded-[20px] border border-black/5 bg-[#f0f1f3] shadow-[inset_2px_2px_5px_rgba(255,255,255,0.5),inset_-2px_-2px_5px_rgba(0,0,0,0.15)] transition duration-200 hover:shadow-[inset_2px_2px_5px_rgba(255,255,255,0.4),inset_-2px_-2px_5px_rgba(0,0,0,0.2)] md:min-h-[590px]">
+        <div className="relative min-h-[380px] min-w-[86vw] snap-start overflow-hidden rounded-[20px] border border-black/5 bg-[#f0f1f3] shadow-[inset_2px_2px_5px_rgba(255,255,255,0.5),inset_-2px_-2px_5px_rgba(0,0,0,0.15)] transition duration-200 hover:shadow-[inset_2px_2px_5px_rgba(255,255,255,0.4),inset_-2px_-2px_5px_rgba(0,0,0,0.2)] md:min-h-[440px] md:min-w-0 xl:min-h-[590px]">
           <video
             className="absolute inset-0 h-full w-full object-cover"
             autoPlay
@@ -44,14 +44,14 @@ export function MarketplaceHero() {
             <source src={heroVideoUrl} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_58%_18%,rgb(255_116_51/0.16),transparent_28%),linear-gradient(90deg,rgb(0_0_0/0.68)_0%,rgb(0_0_0/0.5)_28%,rgb(0_0_0/0.24)_50%,rgb(0_0_0/0.04)_72%,transparent_88%)]" />
-          <div className="relative z-[1] flex min-h-[430px] w-full max-w-[650px] flex-col justify-center px-5 py-7 text-white md:min-h-[590px] md:p-[62px] [&_h1]:!text-white [&_p]:!text-white/82">
+          <div className="relative z-[1] flex min-h-[380px] w-full max-w-[650px] flex-col justify-center px-5 py-7 text-white md:min-h-[440px] md:p-9 xl:min-h-[590px] xl:p-[62px] [&_h1]:!text-white [&_p]:!text-white/82">
             <span className="inline-flex w-fit rounded-lg border border-white/25 bg-white/12 px-2 py-1 text-xs font-bold uppercase text-white/80 backdrop-blur">
               {activeBanner.label}
             </span>
-            <h1 className="my-[18px] mb-3.5 text-[clamp(48px,6vw,82px)] leading-[0.98] !text-white">
+            <h1 className="my-[18px] mb-3.5 text-[clamp(34px,6vw,82px)] leading-[0.98] !text-white">
               {activeBanner.title}
             </h1>
-            <p className="mb-7 mt-0 max-w-[560px] text-xl leading-[1.55] !text-white/82">
+            <p className="mb-7 mt-0 max-w-[560px] text-lg leading-[1.5] !text-white/82 md:text-xl">
               {activeBanner.text}
             </p>
             <Link
@@ -75,7 +75,7 @@ export function MarketplaceHero() {
         </div>
 
         <Link
-          className="group relative grid min-h-[430px] items-end overflow-hidden rounded-[20px] border border-black/5 bg-[#f0f1f3] text-white shadow-[inset_2px_2px_5px_rgba(255,255,255,0.5),inset_-2px_-2px_5px_rgba(0,0,0,0.15)] transition duration-200 hover:shadow-[inset_1px_1px_8px_rgba(255,255,255,0.6),inset_-1px_-1px_8px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.1)] md:min-h-[590px] [&_h2]:!text-white [&_p]:!text-white/75 [&_span]:!text-white/70"
+          className="group relative grid min-h-[260px] min-w-[72vw] snap-start items-end overflow-hidden rounded-[20px] border border-black/5 bg-[#f0f1f3] text-white shadow-[inset_2px_2px_5px_rgba(255,255,255,0.5),inset_-2px_-2px_5px_rgba(0,0,0,0.15)] transition duration-200 hover:shadow-[inset_1px_1px_8px_rgba(255,255,255,0.6),inset_-1px_-1px_8px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.1)] md:min-h-[440px] md:min-w-0 lg:min-h-[500px] xl:min-h-[590px] [&_h2]:!text-white [&_p]:!text-white/75 [&_span]:!text-white/70"
           href={activeAd.href}
         >
           <img
@@ -84,11 +84,11 @@ export function MarketplaceHero() {
             alt={activeAd.title}
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_20%,rgb(0_0_0/0.68))]" />
-          <div className="relative z-[1] p-8 transition duration-200 group-hover:-translate-y-0.5">
+          <div className="relative z-[1] p-5 transition duration-200 group-hover:-translate-y-0.5 md:p-7 lg:p-8">
             <span className="text-xs font-extrabold uppercase text-white/70">
               реклама
             </span>
-            <h2 className="my-3 mb-2.5 max-w-[340px] text-[42px] leading-none !text-white">
+            <h2 className="my-3 mb-2.5 max-w-[340px] text-[30px] leading-none !text-white md:text-[36px] xl:text-[42px]">
               {activeAd.title}
             </h2>
             <p className="m-0 leading-[1.45] !text-white/75">{activeAd.text}</p>

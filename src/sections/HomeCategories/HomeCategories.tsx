@@ -11,7 +11,7 @@ const categories = [
     image:
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=88",
     layout:
-      "min-h-[390px] lg:col-start-1 lg:col-span-4 lg:row-start-1 lg:row-span-3 lg:min-h-0",
+      "lg:col-start-1 lg:col-span-4 lg:row-start-1 lg:row-span-3 lg:min-h-0",
     titleClass: "text-4xl md:text-5xl",
   },
   {
@@ -20,7 +20,7 @@ const categories = [
     href: "/catalog?category=beds",
     image:
       "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=900&q=88",
-    layout: "min-h-[300px] lg:col-start-5 lg:col-span-4 lg:row-start-1 lg:row-span-2 lg:min-h-0",
+    layout: "lg:col-start-5 lg:col-span-4 lg:row-start-1 lg:row-span-2 lg:min-h-0",
     titleClass: "text-3xl md:text-4xl",
   },
   {
@@ -29,7 +29,7 @@ const categories = [
     href: "/catalog?q=диван",
     image:
       "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=88",
-    layout: "min-h-[300px] lg:col-start-9 lg:col-span-4 lg:row-start-1 lg:row-span-2 lg:min-h-0",
+    layout: "lg:col-start-9 lg:col-span-4 lg:row-start-1 lg:row-span-2 lg:min-h-0",
     titleClass: "text-3xl md:text-4xl",
   },
   {
@@ -90,8 +90,8 @@ const categories = [
 
 export function HomeCategories() {
   return (
-    <section className="section !pb-12 !pt-8">
-      <div className="container home-neomorph rounded-[28px] bg-[#f4f5f7] p-3" data-gsap="media-grid">
+    <section className="section !pb-10 !pt-8 max-[640px]:!pb-6 max-[640px]:!pt-6">
+      <div className="container home-neomorph rounded-[28px] bg-[#f4f5f7] p-3 max-[640px]:rounded-[20px]" data-gsap="media-grid">
         <div className="mb-3 flex items-center justify-between gap-4 px-2 pt-1">
           <span className="text-xs font-black uppercase tracking-[0.08em] text-[#ff7433]">
             разделы каталога
@@ -100,10 +100,10 @@ export function HomeCategories() {
             основные категории товаров для спальни
           </span>
         </div>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:[grid-template-rows:repeat(4,190px)]">
+        <div className="flex snap-x gap-3 overflow-x-auto pb-1 lg:grid lg:grid-cols-12 lg:overflow-visible lg:pb-0 lg:[grid-template-rows:repeat(4,170px)] xl:[grid-template-rows:repeat(4,190px)]">
           {categories.map((category) => (
             <Link
-              className={`group relative isolate flex min-h-[210px] overflow-hidden rounded-[18px] border border-white/30 bg-neutral-950 p-6 text-white shadow-[0_12px_34px_rgb(15_23_42/0.08)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgb(15_23_42/0.14)] sm:min-h-[240px] lg:min-h-0 ${category.layout}`}
+              className={`group relative isolate flex min-h-[210px] min-w-[78vw] snap-start overflow-hidden rounded-[18px] border border-white/30 bg-neutral-950 p-5 text-white shadow-[0_12px_34px_rgb(15_23_42/0.08)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_18px_42px_rgb(15_23_42/0.14)] md:min-w-[42vw] lg:min-h-0 lg:min-w-0 lg:p-6 ${category.layout}`}
               href={category.href}
               key={category.title}
             >
@@ -118,7 +118,7 @@ export function HomeCategories() {
               <div className="flex h-full w-full flex-col justify-between gap-5">
                 <div>
                   <h2
-                    className={`max-w-[360px] font-black leading-[0.98] tracking-normal !text-white ${category.titleClass}`}
+                    className={`max-w-[360px] font-black leading-[0.98] tracking-normal !text-white max-[640px]:!text-[28px] ${category.titleClass}`}
                   >
                     {category.title}
                   </h2>

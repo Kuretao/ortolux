@@ -175,7 +175,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-[var(--color-line)] bg-white/95 shadow-[var(--shadow-soft)] backdrop-blur transition duration-200 hover:shadow-[var(--shadow-md)]">
-      <div className="border-b border-[var(--color-line)] bg-[linear-gradient(180deg,#fafbfc_0%,#f3f4f6_100%)]">
+      <div className="border-b border-[var(--color-line)] bg-[linear-gradient(180deg,#fafbfc_0%,#f3f4f6_100%)] max-[860px]:hidden">
         <div className="container grid min-h-9 grid-cols-[minmax(260px,1fr)_auto_auto] items-center gap-[18px] max-[980px]:grid-cols-[1fr_auto]">
           <CitySelector />
           <nav className="flex gap-[18px] max-[980px]:hidden" aria-label="Служебное меню">
@@ -198,13 +198,13 @@ export function Header() {
         </div>
       </div>
 
-      <div className="container grid min-h-[70px] grid-cols-[170px_auto_minmax(360px,1fr)_auto] items-center gap-3.5 max-[980px]:grid-cols-[140px_auto_1fr] max-[720px]:grid-cols-[1fr_auto] max-[720px]:py-2.5">
-        <Link className="text-[26px] font-black text-[var(--color-ink)] transition duration-200 hover:text-[var(--color-primary-dark)]" href="/">
+      <div className="container grid min-h-[66px] grid-cols-[158px_auto_minmax(260px,1fr)_auto] items-center gap-3 max-[1100px]:grid-cols-[140px_auto_minmax(220px,1fr)_auto] max-[860px]:grid-cols-[auto_minmax(0,1fr)] max-[860px]:py-2 max-[480px]:gap-2">
+        <Link className="text-[25px] font-black text-[var(--color-ink)] transition duration-200 hover:text-[var(--color-primary-dark)] max-[420px]:text-[23px]" href="/">
           <span className="text-[var(--color-accent)]">Orto</span>Lux
         </Link>
 
         <button
-          className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] border-0 px-[18px] font-bold shadow-[var(--shadow-md)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lg)] active:translate-y-0 max-[720px]:order-3 ${
+          className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-md)] border-0 px-[18px] font-bold shadow-[var(--shadow-md)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lg)] active:translate-y-0 max-[860px]:order-3 max-[860px]:min-h-10 max-[860px]:px-4 max-[430px]:px-3 ${
             isCatalogOpen
               ? "bg-white text-[var(--color-ink)] shadow-[inset_0_0_0_1px_var(--color-line),var(--shadow-md)]"
               : "bg-[linear-gradient(135deg,var(--color-primary)_0%,var(--color-primary-dark)_100%)] text-white"
@@ -218,20 +218,20 @@ export function Header() {
           Каталог
         </button>
 
-        <div className="grid min-h-11 grid-cols-[auto_1fr_auto] items-center overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-line)] bg-[var(--color-soft)] text-[var(--color-muted)] shadow-[var(--shadow-soft)] transition duration-200 focus-within:border-[var(--color-accent)] focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgb(59_130_246/0.1)] max-[720px]:order-4 max-[720px]:col-span-full">
+        <div className="grid min-h-11 grid-cols-[auto_1fr_auto] items-center overflow-hidden rounded-[var(--radius-md)] border border-[var(--color-line)] bg-[var(--color-soft)] text-[var(--color-muted)] shadow-[var(--shadow-soft)] transition duration-200 focus-within:border-[var(--color-accent)] focus-within:bg-white focus-within:shadow-[0_0_0_3px_rgb(59_130_246/0.1)] max-[860px]:order-3 max-[860px]:min-h-10">
           <Search className="ml-3.5" size={18} />
           <input
             className="min-w-0 border-0 bg-transparent px-3 text-[15px] outline-0 placeholder:text-[var(--color-muted)]"
             placeholder="Поиск по товарам"
             aria-label="Поиск"
           />
-          <button className="min-h-11 border-0 bg-[linear-gradient(135deg,var(--color-primary)_0%,var(--color-primary-dark)_100%)] px-[18px] font-bold text-white transition duration-200 hover:bg-[var(--color-primary-dark)]" type="button">
+          <button className="min-h-11 border-0 bg-[linear-gradient(135deg,var(--color-primary)_0%,var(--color-primary-dark)_100%)] px-[18px] font-bold text-white transition duration-200 hover:bg-[var(--color-primary-dark)] max-[860px]:min-h-10 max-[480px]:hidden" type="button">
             Найти
           </button>
         </div>
 
-        <div className="flex items-center gap-2.5 max-[980px]:col-span-full max-[980px]:justify-end max-[720px]:col-auto">
-          <Link className="icon-button relative" href="/favorites" aria-label="Избранное">
+        <div className="flex items-center justify-end gap-2.5 max-[860px]:col-auto max-[480px]:gap-1.5">
+          <Link className="icon-button relative max-[430px]:hidden" href="/favorites" aria-label="Избранное">
             <Heart size={20} />
             {favoriteCount > 0 ? (
               <span className="absolute -right-2 -top-2 inline-flex h-[22px] min-w-[22px] items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-rose)_0%,#dc2626_100%)] text-[11px] font-extrabold text-white shadow-[0_2px_6px_rgb(239_68_68/0.3)]">
@@ -239,7 +239,7 @@ export function Header() {
               </span>
             ) : null}
           </Link>
-          <Link className="icon-button relative" href="/compare" aria-label="Сравнение">
+          <Link className="icon-button relative max-[430px]:hidden" href="/compare" aria-label="Сравнение">
             <Scale size={20} />
             {compareCount > 0 ? (
               <span className="absolute -right-2 -top-2 inline-flex h-[22px] min-w-[22px] items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-accent)_0%,#1d4ed8_100%)] text-[11px] font-extrabold text-white shadow-[0_2px_6px_rgb(59_130_246/0.3)]">
@@ -265,7 +265,7 @@ export function Header() {
         </div>
       </div>
 
-      <nav className="container flex min-h-10 items-center gap-[22px] overflow-x-auto whitespace-nowrap text-sm font-semibold text-[#6b7280]" aria-label="Категории товаров">
+      <nav className="container flex min-h-10 items-center gap-[22px] overflow-x-auto whitespace-nowrap text-sm font-semibold text-[#6b7280] max-[860px]:hidden" aria-label="Категории товаров">
         {navItems.map((item) => (
           <Link
             className="relative transition duration-200 after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:scale-x-0 after:bg-[var(--color-accent)] after:transition-transform after:duration-200 hover:text-[var(--color-ink)] hover:after:scale-x-100"
@@ -279,11 +279,11 @@ export function Header() {
 
       {isCatalogOpen ? (
         <div
-          className="absolute left-0 right-0 top-full z-[60] animate-[slideDown_0.16s_ease] border-y border-[var(--color-line)] bg-white shadow-[0_22px_52px_rgb(15_23_42/0.16)]"
+          className="absolute left-0 right-0 top-full z-[60] max-h-[calc(100vh-74px)] animate-[slideDown_0.16s_ease] overflow-y-auto border-y border-[var(--color-line)] bg-white shadow-[0_22px_52px_rgb(15_23_42/0.16)]"
           id="site-catalog-menu"
         >
-          <div className="container grid min-h-[540px] grid-cols-[286px_minmax(0,1fr)] bg-white text-[var(--color-ink)] max-[720px]:grid-cols-1">
-            <aside className="overflow-y-auto border-r border-[var(--color-line)] bg-[#f6f7f9] p-3 max-[720px]:flex max-[720px]:gap-2.5 max-[720px]:overflow-x-auto max-[720px]:border-b max-[720px]:border-r-0 max-[720px]:p-3.5">
+          <div className="container grid min-h-[420px] grid-cols-[260px_minmax(0,1fr)] bg-white text-[var(--color-ink)] max-[860px]:grid-cols-1">
+            <aside className="overflow-y-auto border-r border-[var(--color-line)] bg-[#f6f7f9] p-3 max-[860px]:flex max-[860px]:gap-2.5 max-[860px]:overflow-x-auto max-[860px]:border-b max-[860px]:border-r-0 max-[860px]:p-3.5">
               {catalogGroups.map((group, index) => {
                 const Icon = group.icon;
 
@@ -293,7 +293,7 @@ export function Header() {
                       index === activeGroupIndex
                         ? "bg-white shadow-[inset_3px_0_0_var(--color-accent),0_1px_0_rgb(15_23_42/0.04)]"
                         : "bg-transparent"
-                    }`}
+                    } max-[860px]:min-w-56`}
                     type="button"
                     key={group.title}
                     onClick={() => setActiveGroupIndex(index)}
@@ -310,12 +310,12 @@ export function Header() {
             </aside>
 
             <div className="bg-white px-3.5 py-5 md:p-8">
-              <div className="mb-6 grid items-start gap-6 border-b border-[var(--color-line)] pb-5 md:grid-cols-[minmax(0,1fr)_auto]">
+              <div className="mb-5 grid items-start gap-4 border-b border-[var(--color-line)] pb-5 md:grid-cols-[minmax(0,1fr)_auto]">
                 <div>
                   <span className="text-xs font-black uppercase text-[#6b7280]">
                     Раздел каталога
                   </span>
-                  <h2 className="my-1 mb-2 text-3xl leading-[1.05] text-[var(--color-ink)]">
+                  <h2 className="my-1 mb-2 text-3xl leading-[1.05] text-[var(--color-ink)] max-[640px]:text-2xl">
                     {activeGroup.title}
                   </h2>
                   <p className="m-0 max-w-[560px] leading-[1.45] text-[var(--color-muted)]">
@@ -330,7 +330,7 @@ export function Header() {
                 </Link>
               </div>
 
-              <div className="grid items-start gap-9 lg:grid-cols-[minmax(0,1fr)_280px]">
+              <div className="grid items-start gap-7 lg:grid-cols-[minmax(0,1fr)_260px]">
                 <div className="grid gap-x-11 gap-y-7 md:grid-cols-2 xl:grid-cols-3">
                   {activeGroup.sections.map((section) => (
                     <section className="min-w-0" key={section.title}>

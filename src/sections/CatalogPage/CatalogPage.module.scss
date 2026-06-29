@@ -73,6 +73,7 @@
   align-items: start;
   gap: 22px;
   grid-template-columns: 280px minmax(0, 1fr);
+  min-width: 0;
 }
 
 .filters {
@@ -80,6 +81,7 @@
   top: 96px;
   display: grid;
   gap: 22px;
+  min-width: 0;
   border: 1px solid rgb(255 255 255 / 78%);
   border-radius: 24px;
   background:
@@ -89,6 +91,10 @@
     14px 18px 42px rgb(29 32 35 / 8%),
     inset 1px 1px 0 rgb(255 255 255 / 82%);
   padding: 20px;
+}
+
+.filters > * {
+  min-width: 0;
 }
 
 .filterTitle {
@@ -125,6 +131,8 @@
 .filters input[type="number"],
 .filters input[type="text"],
 .filters input:not([type]) {
+  width: 100%;
+  min-width: 0;
   min-height: 42px;
   border: 1px solid rgb(229 231 235 / 88%);
   border-radius: 12px;
@@ -138,6 +146,7 @@
 }
 
 .filterGroup {
+  min-width: 0;
   border-top: 1px solid rgb(29 32 35 / 9%);
   padding-top: 16px;
 
@@ -153,7 +162,15 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  min-width: 0;
+  max-width: 100%;
   margin-top: 12px;
+  scrollbar-width: none;
+}
+
+.chips::-webkit-scrollbar,
+.checks::-webkit-scrollbar {
+  display: none;
 }
 
 .chips button {
@@ -317,25 +334,94 @@
 }
 
 @media (max-width: 1080px) {
+  .hero {
+    padding-top: 14px;
+
+    :global(.container) {
+      min-height: 300px;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 64px);
+    }
+  }
+
   .layout {
     grid-template-columns: 1fr;
   }
 
   .filters {
     position: static;
+    gap: 16px;
+    border-radius: 20px;
+    padding: 16px;
   }
 
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .list {
+    article {
+      grid-template-columns: 220px minmax(0, 1fr);
+    }
   }
 }
 
 @media (max-width: 620px) {
   .hero {
     :global(.container) {
-      min-height: 300px;
-      padding: 34px 22px;
+      min-height: 260px;
+      border-radius: 20px;
+      padding: 28px 20px;
     }
+
+    h1 {
+      font-size: 34px;
+      line-height: 0.98;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.45;
+    }
+  }
+
+  .catalog {
+    padding-top: 14px;
+  }
+
+  .filters {
+    gap: 14px;
+    border-radius: 18px;
+    padding: 14px;
+  }
+
+  .filterTitle {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+
+    button {
+      margin-left: 0;
+    }
+  }
+
+  .chips,
+  .checks {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+
+  .checks {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+
+  .chips button {
+    flex: 0 0 auto;
   }
 
   .toolbar {
