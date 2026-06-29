@@ -177,12 +177,14 @@
   gap: 18px;
   padding-top: 18px;
   grid-template-columns: minmax(0, 1fr) 360px;
+  min-width: 0;
 }
 
 .mainColumn,
 .sideColumn {
   display: grid;
   gap: 18px;
+  min-width: 0;
 }
 
 .panel,
@@ -396,8 +398,94 @@
 @media (max-width: 620px) {
   .hero,
   .guestHero {
-    min-height: 560px;
-    padding: 28px 20px;
+    min-height: 360px;
+    border-radius: 22px;
+    margin-top: 14px;
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .guestHero {
+    min-height: 440px;
+  }
+
+  .heroCopy,
+  .guestCopy {
+    h1 {
+      font-size: 32px;
+      line-height: 0.98;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.48;
+    }
+  }
+
+  .actions {
+    gap: 9px;
+    margin-top: 18px;
+
+    a,
+    button {
+      min-height: 40px;
+      padding-inline: 14px;
+      font-size: 14px;
+    }
+  }
+
+  .profileCard {
+    align-content: start;
+    align-items: center;
+    border-radius: 18px;
+    gap: 5px 12px;
+    padding: 14px;
+    grid-template-columns: auto minmax(0, 1fr);
+
+    svg {
+      grid-row: span 2;
+    }
+
+    strong {
+      overflow: hidden;
+      font-size: 22px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    small {
+      display: none;
+    }
+
+    a {
+      grid-column: 1 / -1;
+      margin-top: 8px;
+    }
+  }
+
+  .statsGrid {
+    gap: 10px;
+    padding-top: 14px;
+
+    article {
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    strong {
+      font-size: 28px;
+    }
+  }
+
+  .dashboard {
+    gap: 14px;
+    padding-top: 14px;
   }
 
   .statsGrid,
@@ -412,5 +500,54 @@
 
   .panelHeader {
     display: grid;
+    gap: 12px;
+  }
+
+  .panel,
+  .sidePanel,
+  .profileDetails {
+    border-radius: 20px;
+    padding: 18px;
+  }
+
+  .orderPreview > div {
+    align-items: start;
+    border-radius: 16px;
+    grid-template-columns: 64px minmax(0, 1fr);
+
+    b {
+      grid-column: 2;
+    }
+  }
+
+  .orderPreview img {
+    width: 64px;
+    height: 56px;
+  }
+
+  .orderPreview footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .recommendations {
+    a {
+      grid-template-columns: 96px minmax(0, 1fr);
+    }
+
+    img {
+      height: 100%;
+      aspect-ratio: auto;
+    }
+
+    strong {
+      align-self: end;
+      margin-top: 0;
+      padding: 12px 12px 0;
+    }
+
+    span {
+      padding: 2px 12px 12px;
+    }
   }
 }

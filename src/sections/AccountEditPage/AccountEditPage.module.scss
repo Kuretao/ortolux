@@ -4,6 +4,7 @@
   gap: 18px;
   padding-top: 22px;
   grid-template-columns: minmax(320px, 0.48fr) minmax(0, 1fr);
+  min-width: 0;
 }
 
 .hero,
@@ -78,6 +79,7 @@
 .form {
   display: grid;
   gap: 20px;
+  min-width: 0;
   background:
     radial-gradient(circle at 16% 0%, rgb(255 116 51 / 10%), transparent 30%),
     #fff;
@@ -103,6 +105,8 @@
 
   input,
   select {
+    width: 100%;
+    min-width: 0;
     min-height: 48px;
     border: 1px solid rgb(229 231 235 / 88%);
     border-radius: 14px;
@@ -164,7 +168,57 @@
 }
 
 @media (max-width: 620px) {
+  .layout {
+    gap: 14px;
+    padding-top: 14px;
+  }
+
+  .hero,
+  .form,
+  .guest {
+    border-radius: 20px;
+  }
+
+  .hero {
+    min-height: 340px;
+    padding: 26px 20px;
+
+    > a {
+      left: 16px;
+      top: 16px;
+      min-height: 36px;
+      padding-inline: 12px;
+    }
+
+    h1 {
+      font-size: 34px;
+      line-height: 0.98;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.48;
+    }
+  }
+
+  .form {
+    gap: 16px;
+    padding: 18px;
+  }
+
   .formGrid {
+    gap: 14px;
     grid-template-columns: 1fr;
+  }
+
+  .guest {
+    min-height: 300px;
+    margin-top: 14px;
+    padding: 26px 20px;
+
+    h1 {
+      font-size: 34px;
+      line-height: 0.98;
+    }
   }
 }

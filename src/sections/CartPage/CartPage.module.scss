@@ -72,6 +72,7 @@
   gap: 22px;
   padding-top: 22px;
   grid-template-columns: minmax(0, 1fr) 390px;
+  min-width: 0;
 }
 
 .mainColumn {
@@ -160,6 +161,7 @@
 }
 
 .item {
+  position: relative;
   display: grid;
   align-items: center;
   gap: 16px;
@@ -337,6 +339,7 @@
   top: 96px;
   display: grid;
   gap: 16px;
+  min-width: 0;
   background:
     radial-gradient(circle at 18% 0%, rgb(255 116 51 / 10%), transparent 28%),
     #fff;
@@ -371,6 +374,8 @@
   }
 
   input {
+    width: 100%;
+    min-width: 0;
     min-height: 46px;
     border: 1px solid rgb(229 231 235 / 88%);
     border-radius: 14px;
@@ -439,20 +444,81 @@
 
 @media (max-width: 760px) {
   .hero {
-    padding: 30px 22px;
+    gap: 18px;
+    border-radius: 22px;
+    margin-top: 14px;
+    padding: 24px 20px;
+
+    h1 {
+      font-size: 36px;
+      line-height: 0.98;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.48;
+    }
+  }
+
+  .steps {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    border-radius: 18px;
+    padding: 10px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    span {
+      flex: 0 0 auto;
+      min-height: 34px;
+      padding-inline: 10px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
   }
 
   .panelHeader {
     display: grid;
+    gap: 12px;
+
+    a {
+      width: fit-content;
+      min-height: 38px;
+    }
   }
 
   .item {
+    align-items: start;
+    gap: 10px 12px;
+    border-radius: 18px;
     grid-template-columns: 88px minmax(0, 1fr);
 
     .qty,
     .linePrice,
     .remove {
       justify-self: start;
+    }
+
+    .qty {
+      grid-column: 1 / 2;
+    }
+
+    .linePrice {
+      align-self: center;
+      font-size: 18px;
+      grid-column: 2 / 3;
+    }
+
+    .remove {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 36px;
+      height: 36px;
     }
   }
 
@@ -461,14 +527,57 @@
     height: 76px;
   }
 
+  .itemInfo {
+    padding-right: 38px;
+
+    a {
+      font-size: 16px;
+    }
+  }
+
+  .panel,
+  .summary,
+  .empty,
+  .assurance article {
+    border-radius: 20px;
+  }
+
+  .panel,
+  .summary {
+    padding: 18px;
+  }
+
+  .summaryHeader h2 {
+    font-size: 24px;
+  }
+
+  .total strong {
+    font-size: 30px;
+  }
+
   .assurance {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 520px) {
+  .layout {
+    padding-top: 14px;
+  }
+
+  .empty {
+    min-height: 260px;
+    padding: 24px;
+  }
+
+  .checkoutGrid {
+    gap: 14px;
+  }
+
   .paymentMethods label,
   .deliveryOptions div {
+    border-radius: 16px;
+    padding: 12px;
     grid-template-columns: auto minmax(0, 1fr);
 
     span {
